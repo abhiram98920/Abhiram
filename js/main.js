@@ -344,7 +344,7 @@ const initAbout3DModel = () => {
   const scene = new THREE.Scene();
   scene.background = null;
 
-  const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
+  const camera = new THREE.PerspectiveCamera(45, 1, 0.0001, 1000000);
   camera.position.z = 5;
 
   const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
@@ -372,56 +372,49 @@ const initAbout3DModel = () => {
   const controls = new THREE.OrbitControls(camera, renderer.domElement);
   controls.enableZoom = false; // Prevent zooming the entire page unintentionally
   controls.enablePan = false;
-  controls.autoRotate = true;
+  controls.autoRotate = true; 
   controls.autoRotateSpeed = 2.0;
 
   // Loaders
   const textureLoader = new THREE.TextureLoader();
   const objLoader = new THREE.OBJLoader();
 
-  // Load Texture
-  textureLoader.load(
-    'assets/WhatsApp Image 2026-05-18 at 3.00.51 PM.jpeg',
-    (texture) => {
-      // Create Material using the photo
-      const material = new THREE.MeshStandardMaterial({
-        map: texture,
-        roughness: 0.6,
-        metalness: 0.1,
+  // Load OBJ First
+  objLoader.load(
+    'assets/model.obj',
+    (object) => {
+      // Center the object
+      const box = new THREE.Box3().setFromObject(object);
+      const center = box.getCenter(new THREE.Vector3());
+      object.position.x += (object.position.x - center.x);
+      object.position.y += (object.position.y - center.y);
+      object.position.z += (object.position.z - center.z);
+      
+      // Scale it to fit the camera
+      const size = box.getSize(new THREE.Vector3());
+      const maxDim = Math.max(size.x, size.y, size.z) || 1;
+      const fov = camera.fov * (Math.PI / 180);
+      let cameraZ = Math.abs(maxDim / (2 * Math.tan(fov / 2)));
+      camera.position.z = cameraZ * 1.5;
+
+      scene.add(object);
+
+      // Apply Premium Material
+      const premiumMat = new THREE.MeshStandardMaterial({
+        color: 0x111111, // Dark base
+        roughness: 0.3,
+        metalness: 0.8, // Highly reflective
+        side: THREE.DoubleSide
       });
-
-      // Load OBJ
-      objLoader.load(
-        'assets/model.obj',
-        (object) => {
-          object.traverse((child) => {
-            if (child instanceof THREE.Mesh) {
-              child.material = material;
-            }
-          });
-          
-          // Center the object
-          const box = new THREE.Box3().setFromObject(object);
-          const center = box.getCenter(new THREE.Vector3());
-          object.position.x += (object.position.x - center.x);
-          object.position.y += (object.position.y - center.y);
-          object.position.z += (object.position.z - center.z);
-          
-          // Scale it to fit the camera
-          const size = box.getSize(new THREE.Vector3());
-          const maxDim = Math.max(size.x, size.y, size.z);
-          const fov = camera.fov * (Math.PI / 180);
-          let cameraZ = Math.abs(maxDim / 2 * Math.tan(fov * 2));
-          camera.position.z = cameraZ * 2.5;
-
-          scene.add(object);
-        },
-        undefined,
-        (error) => console.error('Error loading model.obj:', error)
-      );
+      
+      object.traverse((child) => {
+        if (child instanceof THREE.Mesh) {
+          child.material = premiumMat;
+        }
+      });
     },
     undefined,
-    (error) => console.error('Error loading texture:', error)
+    (error) => console.error('Error loading model.obj:', error)
   );
 
   // Resize Handler
