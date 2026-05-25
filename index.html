@@ -12,35 +12,138 @@
   <meta name="theme-color" content="#050505">
   <meta name="application-name" content="Abhiram P Mohan Portfolio">
   <meta name="apple-mobile-web-app-title" content="Abhiram P Mohan">
-  <link rel="canonical" href="https://abhiram98920.github.io/portf/">
-  <link rel="alternate" href="https://abhiram98920.github.io/portf/" hreflang="en-IN">
+  <link rel="canonical" href="https://abhiram98920.github.io/Abhiram/">
+  <link rel="alternate" href="https://abhiram98920.github.io/Abhiram/" hreflang="en-IN">
   <link rel="icon" href="assets/WhatsApp Image 2026-05-18 at 3.00.51 PM.jpeg" type="image/jpeg">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_IN">
   <meta property="og:site_name" content="Abhiram P Mohan Portfolio">
   <meta property="og:title" content="Website Designer & Full-Stack Developer in Kerala | Abhiram P Mohan">
   <meta property="og:description" content="Website design, WordPress, WooCommerce, React, CMS, landing page, web app, and QA-led development portfolio by Abhiram P Mohan.">
-  <meta property="og:url" content="https://abhiram98920.github.io/portf/">
-  <meta property="og:image" content="https://abhiram98920.github.io/portf/assets/WhatsApp%20Image%202026-05-18%20at%203.00.51%20PM.jpeg">
+  <meta property="og:url" content="https://abhiram98920.github.io/Abhiram/">
+  <meta property="og:image" content="https://abhiram98920.github.io/Abhiram/assets/WhatsApp%20Image%202026-05-18%20at%203.00.51%20PM.jpeg">
   <meta property="og:image:alt" content="Abhiram P Mohan, website designer and full-stack developer">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Website Designer & Full-Stack Developer in Kerala | Abhiram P Mohan">
   <meta name="twitter:description" content="Portfolio of website design, React, WordPress, WooCommerce, CMS, e-commerce, landing pages, and QA-led web development projects.">
-  <meta name="twitter:image" content="https://abhiram98920.github.io/portf/assets/WhatsApp%20Image%202026-05-18%20at%203.00.51%20PM.jpeg">
+  <meta name="twitter:image" content="https://abhiram98920.github.io/Abhiram/assets/WhatsApp%20Image%202026-05-18%20at%203.00.51%20PM.jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=hero-style-fix-1">
+  <style>
+    body {
+      background: #050505;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .hero-signature {
+      min-height: 100vh;
+      padding: 120px 5% 80px;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-signature::before {
+      content: "";
+      position: absolute;
+      inset: 12% 5% auto;
+      height: 52vh;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 28px;
+      background: rgba(14, 15, 16, 0.42);
+      pointer-events: none;
+    }
+
+    .hero-name-wrap {
+      position: relative;
+      width: min(1260px, 100%);
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .hero-name {
+      position: relative;
+      z-index: 1;
+      color: #c3e41d;
+      font-family: "Courier New", monospace;
+      font-size: clamp(5rem, 15vw, 13rem);
+      font-weight: 900;
+      line-height: 0.75;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .hero-line-break {
+      display: block;
+    }
+
+    .blur-letter {
+      display: inline-block;
+    }
+
+    .hero-portrait {
+      position: absolute;
+      z-index: 3;
+      top: 50%;
+      left: 50%;
+      width: clamp(76px, 9vw, 132px);
+      aspect-ratio: 0.59;
+      border-radius: 999px;
+      overflow: hidden;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 30px 100px rgba(0, 0, 0, 0.55);
+    }
+
+    .hero-portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-tagline {
+      position: absolute;
+      left: 50%;
+      bottom: clamp(76px, 10vh, 132px);
+      width: min(620px, calc(100% - 48px));
+      color: rgba(255, 255, 255, 0.58);
+      font-size: clamp(1rem, 2vw, 1.35rem);
+      line-height: 1.5;
+      text-align: center;
+      transform: translateX(-50%);
+    }
+
+    @media (max-width: 680px) {
+      .hero-name {
+        font-size: clamp(3.6rem, 20vw, 6.4rem);
+      }
+
+      .hero-signature::before {
+        inset: 16% 4% auto;
+        height: 45vh;
+        border-radius: 18px;
+      }
+
+      .hero-portrait {
+        width: 76px;
+      }
+    }
+  </style>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
         {
           "@type": "Person",
-          "@id": "https://abhiram98920.github.io/portf/#person",
+          "@id": "https://abhiram98920.github.io/Abhiram/#person",
           "name": "Abhiram P Mohan",
-          "url": "https://abhiram98920.github.io/portf/",
-          "image": "https://abhiram98920.github.io/portf/assets/WhatsApp%20Image%202026-05-18%20at%203.00.51%20PM.jpeg",
+          "url": "https://abhiram98920.github.io/Abhiram/",
+          "image": "https://abhiram98920.github.io/Abhiram/assets/WhatsApp%20Image%202026-05-18%20at%203.00.51%20PM.jpeg",
           "email": "mailto:manu.abhiram@gmail.com",
           "telephone": "+917012649326",
           "jobTitle": "Website Designer, Full-Stack Developer and QA Lead",
@@ -64,14 +167,14 @@
         },
         {
           "@type": "ProfessionalService",
-          "@id": "https://abhiram98920.github.io/portf/#service",
+          "@id": "https://abhiram98920.github.io/Abhiram/#service",
           "name": "Abhiram P Mohan Website Design and Development",
-          "url": "https://abhiram98920.github.io/portf/",
-          "image": "https://abhiram98920.github.io/portf/assets/WhatsApp%20Image%202026-05-18%20at%203.00.51%20PM.jpeg",
+          "url": "https://abhiram98920.github.io/Abhiram/",
+          "image": "https://abhiram98920.github.io/Abhiram/assets/WhatsApp%20Image%202026-05-18%20at%203.00.51%20PM.jpeg",
           "description": "Website design, WordPress development, WooCommerce stores, React web apps, CMS websites, landing pages, and QA-led web development by Abhiram P Mohan.",
           "areaServed": ["Kerala", "India", "Worldwide"],
           "founder": {
-            "@id": "https://abhiram98920.github.io/portf/#person"
+            "@id": "https://abhiram98920.github.io/Abhiram/#person"
           },
           "serviceType": [
             "Website Design",
@@ -87,18 +190,18 @@
         },
         {
           "@type": "WebSite",
-          "@id": "https://abhiram98920.github.io/portf/#website",
-          "url": "https://abhiram98920.github.io/portf/",
+          "@id": "https://abhiram98920.github.io/Abhiram/#website",
+          "url": "https://abhiram98920.github.io/Abhiram/",
           "name": "Abhiram P Mohan Portfolio",
           "description": "Portfolio for website design, web development, WordPress, WooCommerce, React, CMS, e-commerce, landing page, and QA-led projects.",
           "publisher": {
-            "@id": "https://abhiram98920.github.io/portf/#person"
+            "@id": "https://abhiram98920.github.io/Abhiram/#person"
           },
           "inLanguage": "en-IN"
         },
         {
           "@type": "ItemList",
-          "@id": "https://abhiram98920.github.io/portf/#projects",
+          "@id": "https://abhiram98920.github.io/Abhiram/#projects",
           "name": "Website Design and Development Projects",
           "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Lucas e-commerce WordPress website", "url": "https://btians.com/clients/lucas/"},
@@ -523,4 +626,5 @@
   </script>
 </body>
 </html>
+
 
