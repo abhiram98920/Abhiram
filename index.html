@@ -30,7 +30,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=hero-style-fix-1">
+  <link rel="stylesheet" href="css/style.css?v=hero-overlap-fix-1">
   <style>
     body {
       background: #050505;
@@ -41,8 +41,10 @@
     .hero-signature {
       min-height: 100vh;
       padding: 120px 5% 80px;
-      display: flex;
-      justify-content: center;
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto 42px;
+      align-items: center;
+      row-gap: 24px;
       overflow: hidden;
       position: relative;
     }
@@ -63,6 +65,7 @@
       width: min(1260px, 100%);
       margin: 0 auto;
       text-align: center;
+      transform: translateY(-3vh);
     }
 
     .hero-name {
@@ -107,20 +110,39 @@
     }
 
     .hero-tagline {
-      position: absolute;
-      left: 50%;
-      bottom: clamp(76px, 10vh, 132px);
+      position: relative;
+      z-index: 4;
       width: min(620px, calc(100% - 48px));
+      margin: -4vh auto 0;
       color: rgba(255, 255, 255, 0.58);
       font-size: clamp(1rem, 2vw, 1.35rem);
       line-height: 1.5;
       text-align: center;
-      transform: translateX(-50%);
+      transform: none;
+      opacity: 1;
+      filter: none;
+      animation: none;
+    }
+
+    .scroll-cue {
+      position: relative;
+      left: auto;
+      bottom: auto;
+      margin: 0 auto;
+      transform: none;
     }
 
     @media (max-width: 680px) {
       .hero-name {
         font-size: clamp(3.6rem, 20vw, 6.4rem);
+      }
+
+      .hero-name-wrap {
+        transform: translateY(-2vh);
+      }
+
+      .hero-tagline {
+        margin-top: -2vh;
       }
 
       .hero-signature::before {
